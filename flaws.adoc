@@ -1,16 +1,54 @@
 [role="pagenumrestart"]
-[[whatis_chapter]]
-== What Is Ethereum?
+[[flaws_chapter]]
+== Smart contract security flaws
 
-blabla
+This section contains my research on ethereum smart contracts security flaws
 
-[[bitcoin_comparison]]
-=== Compared to Bitcoin
 
-blabla
+[[first_taxonomy]]
+=== A first insight
+The paper "Smart Contract: Attacks and Protections" classifies the attack on smart contracts into 4 categories.
+Then it explains the different attack techniques concerning application bugs.
+Finally it presents the different analysis tools and exposed their limitations.
 
-[[blockchain_components]]
-=== Components of a Blockchain
+The analysis tool part of the paper will be discussed in the https://github.com/Longferret/smart_contract_tax/blob/main/tools.adoc[Analysis Tool section].
 
-blabla
+Link:: 
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8976179
 
+[[attack_classification]]
+==== Attack classification
+Malicious acts:: The goal os the attack is to comprise the action of spreading malware to deceive users
+Weak protocol:: It is a direct attack on the protocol, like the 51% attack.
+Defraud:: The goal of the attack is to spend multiple time the same money by convicing the other party to approve the transaction too early (not enough confirmation by the network).
+Application bugs:: Contains all security flaws related to human errors while coding.
+
+[[attack_techniques]]
+==== Application bugs attack techniques
+Reentrancy:: a
+Overflow/Underflow:: a
+Short Address Attack:: a
+DelegateAll:: a
+Default Visibilities:: a
+Transaction ordering dependence:: a
+Timestamp dependence:: a
+
+[[recent_taxonomy]]
+=== A recent open-source taxonomy
+The authors created an open source taxonomy on smart contracts security flaws based on previous  taxonomies.
+They called their taxonomy OpenCSV and it is available online. 
+
+Links:: 
+* Paper: https://arxiv.org/pdf/2303.14523.pdf
+* OpenCSV: https://openscv.dei.uc.pt/
+
+This taxonomy is very complete and recent (April 2023), It makes it an excellent tool to check for vulnerabilities in smart contracts.
+
+We must note that the taxonomy presented in the paper is not anymore the same as the one online.
+
+The part 4. "Bad Programming Pratices & Language Weakness" is now splitted in 2 categories: 
+
+* Bad Programming Pratices & Language Weakness
+* Erroneous Credit Transfer
+
+MUST VERIFY FURTHER ALL SECURITY FLAWS
