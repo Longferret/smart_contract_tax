@@ -1,0 +1,16 @@
+[role="pagenumrestart"]
+[[whatis_chapter]]
+== What Is Ethereum?
+
+blabla
+
+[[bitcoin_comparison]]
+=== Compared to Bitcoin
+
+blabla
+
+[[blockchain_components]]
+=== Components of a Blockchain
+
+blabla
+

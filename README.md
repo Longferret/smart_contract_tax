@@ -1,12 +1,14 @@
 # Research on Smart Contract securoty flaws 
 
-I'am Henry Leclipteur and, as part of my master's thesis, I will explore how the smart contract works and their secutity flaws principaly on the ethereum blockchain. 
+I'am Henry Leclipteur and, as part of my master's thesis, I will explore how  smart contracts work and their security flaws on the ethereum blockchain. 
 
 
 ## Sections
-+ Ethereum knowledge: '[Preface](https://github.com/Longferret/smart_contract_tax/blob/main/ethknowledge.adoc)'
-+ Solidity: '[What Is Ethereum](https://github.com/Longferret/smart_contract_tax/blob/main/01what-is.asciidoc)'
-+ Parsing the blockchain: '[Ethereum Basics](https://github.com/ethereumbook/ethereumbook/blob/develop/02intro.asciidoc)'
++ Section 1: '[Ethereum basics](https://github.com/Longferret/smart_contract_tax/blob/main/ethbasics.adoc)'
++ Section 2 : '[Smart contracts & Solidity](https://github.com/Longferret/smart_contract_tax/blob/main/solidity.adoc)'
++ Section 3 : '[Existing security flaws](https://github.com/Longferret/smart_contract_tax/blob/main/flaws.adoc)'
++ Section 4 : '[Analysis tools](https://github.com/Longferret/smart_contract_tax/blob/main/tools.adoc)'
++ Section 5 : '[Parsing the blockchain](https://github.com/Longferret/smart_contract_tax/blob/main/ethknowledge.adoc)'
 
 ## Sources
 
