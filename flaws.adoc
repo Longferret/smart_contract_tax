@@ -1,12 +1,12 @@
 [role="pagenumrestart"]
 [[flaws_chapter]]
-== Smart contract security flaws
+= Smart contract security flaws
 
 This section contains my research on ethereum smart contracts security flaws
 
 
 [[first_taxonomy]]
-=== A first insight
+== A first insight
 The paper "Smart Contract: Attacks and Protections" classifies the attack on smart contracts into 4 categories.
 Then it explains the different attack techniques concerning application bugs.
 Finally it presents the different analysis tools and exposed their limitations.
@@ -17,24 +17,30 @@ Link::
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8976179
 
 [[attack_classification]]
-==== Attack classification
-Malicious acts:: The goal os the attack is to comprise the action of spreading malware to deceive users
+=== Attack classification
+Malicious acts:: The goal of the attack is to comprise the action of spreading malware to deceive users
 Weak protocol:: It is a direct attack on the protocol, like the 51% attack.
 Defraud:: The goal of the attack is to spend multiple time the same money by convicing the other party to approve the transaction too early (not enough confirmation by the network).
 Application bugs:: Contains all security flaws related to human errors while coding.
 
 [[attack_techniques]]
-==== Application bugs attack techniques
-Reentrancy:: a
-Overflow/Underflow:: a
-Short Address Attack:: a
-DelegateAll:: a
-Default Visibilities:: a
-Transaction ordering dependence:: a
-Timestamp dependence:: a
+=== Application bugs attack techniques
+Reentrancy:: A reentrancy attack happens when a function is externally invoked during its execution, allowing it to be run multiple times in a single transaction.
+Overflow/Underflow:: The attack can occur on smart contracts that do not check their inputs.
+An overflow in when an input value is greater than the maximum value the program can handle.
+An underflow is the opposite, the input value is lower than the minimum value, this can cause the value to become really large.
+Short Address Attack:: https://medium.com/coinmonks/understanding-and-preventing-short-address-attacks-in-solidity-smart-contracts-3d46a4af9a15
+
+TO EXPLAIN
+
+DelegateCall:: delegatecall is a low level function. It can allow an attacker to execute arbitrary code on a contract. This is because delegatecall executes the code of the called contract in the context of the calling contract, which means that the called contract can access and modify the storage variables of the calling contract.
+Default Visibilities:: This kind of attack happends when a variable that should be accessible is accessible on any part of the code.
+Transaction ordering dependence:: It happends when a smart contract is dependent on the transaction order.
+A malicious miner could re-order transaction to change the outcome of multiple transactions.
+Timestamp dependence:: This vulnerability is due to the ethereum network being asynchronous. If the smart contract is dependent on timestamps, a malicious miner could re-arrange the timestamp by a few seconds to change the outcome of a transaction. 
 
 [[recent_taxonomy]]
-=== A recent open-source taxonomy
+== A recent open-source taxonomy
 The authors created an open source taxonomy on smart contracts security flaws based on previous  taxonomies.
 They called their taxonomy OpenCSV and it is available online. 
 
