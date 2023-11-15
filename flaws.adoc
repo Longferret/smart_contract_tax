@@ -1,9 +1,7 @@
 [role="pagenumrestart"]
 [[flaws_chapter]]
 = Smart contract security flaws
-
 This section contains my research on ethereum smart contracts security flaws
-
 
 [[first_taxonomy]]
 == A first insight
@@ -29,9 +27,12 @@ Reentrancy:: A reentrancy attack happens when a function is externally invoked d
 Overflow/Underflow:: The attack can occur on smart contracts that do not check their inputs.
 An overflow in when an input value is greater than the maximum value the program can handle.
 An underflow is the opposite, the input value is lower than the minimum value, this can cause the value to become really large.
-Short Address Attack:: https://medium.com/coinmonks/understanding-and-preventing-short-address-attacks-in-solidity-smart-contracts-3d46a4af9a15
+Short Address Attack:: This exploit uses the way solidity pads shorter argument by zeros.
+If a function of a smart contract accepts 2 arguments, an ethereum address (20 bytes) and a number (32 bytes).
+An attacker could send a transaction from a 19 bytes address, the first byte of the number will be used as the last byte of the address and the number will be padded with zeros.
+The number will than be 256 larger.
 
-TO EXPLAIN
+A complete explanation: https://medium.com/coinmonks/understanding-and-preventing-short-address-attacks-in-solidity-smart-contracts-3d46a4af9a15
 
 DelegateCall:: delegatecall is a low level function. It can allow an attacker to execute arbitrary code on a contract. This is because delegatecall executes the code of the called contract in the context of the calling contract, which means that the called contract can access and modify the storage variables of the calling contract.
 Default Visibilities:: This kind of attack happends when a variable that should be accessible is accessible on any part of the code.
@@ -57,4 +58,11 @@ The part 4. "Bad Programming Pratices & Language Weakness" is now splitted in 2 
 * Bad Programming Pratices & Language Weakness
 * Erroneous Credit Transfer
 
-MUST VERIFY FURTHER ALL SECURITY FLAWS
+The part 1 contains 2 more categories:
+
+* 1.7 Unsafe Non-Blockchain External Call
+* 1.8 Cross Channel Invocation
+
+The part 5.1 (now 6.1) contains 1 more categorie:
+
+* 6.1.8 Wrong Transaction Definition

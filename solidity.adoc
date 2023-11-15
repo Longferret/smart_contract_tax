@@ -1,16 +1,10 @@
 [role="pagenumrestart"]
-[[whatis_chapter]]
-== What Is Ethereum?
+[[solidity]]
+= Solidity language
 
-blabla
+You can find here all the things I learned about the solidity language
 
-[[bitcoin_comparison]]
-=== Compared to Bitcoin
-
-blabla
-
-[[blockchain_components]]
-=== Components of a Blockchain
-
-blabla
+[[characteristic]]
+== Characteristic
+The solidity language is a high-level, object oriented language that is used to implement smart contract on the ethereum blockchain.
 

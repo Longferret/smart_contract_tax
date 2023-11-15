@@ -1,16 +1,6 @@
 [role="pagenumrestart"]
-[[whatis_chapter]]
-== What Is Ethereum?
+[[eth_basics]]
+= Ethereum basics
+You can find here everything I learned about ethereum.
 
-blabla
-
-[[bitcoin_comparison]]
-=== Compared to Bitcoin
-
-blabla
-
-[[blockchain_components]]
-=== Components of a Blockchain
-
-blabla
 
