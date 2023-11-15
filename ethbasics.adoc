@@ -1,6 +1,4 @@
 [role="pagenumrestart"]
 [[eth_basics]]
-= Ethereum basics
+== Ethereum basics
 You can find here everything I learned about ethereum.
-
-
