@@ -1,4 +1,4 @@
-# Research on Smart Contract securoty flaws 
+# Research on Smart Contract security flaws 
 
 I'am Henry Leclipteur and, as part of my master's thesis, I will explore how  smart contracts work and their security flaws on the ethereum blockchain. 
 
