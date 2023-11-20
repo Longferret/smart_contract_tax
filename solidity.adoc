@@ -22,7 +22,7 @@ function modifiers::
 Function modifier are used to change the behavior of a function like restricting access to a variable, check inputs or avoid reentrancy.
 It is declared like a function, will execute prior to the function on which we apply the modifier.
 It uses the line "_;" to tell when we can run the function code.
-Here is an https://github.com/Longferret/smart_contract_tax/blob/main/code/func_modifier.sol[example]
+Here is an https://github.com/Longferret/smart_contract_tax/blob/main/code/learning_sol/modifiersAndConstructors.sol[example]
 
 
 
@@ -31,6 +31,7 @@ Here is an https://github.com/Longferret/smart_contract_tax/blob/main/code/func_
 == Learning using Remix
 I used remix to begin coding in solidity, It is an IDE that permit to compile solidity code and test our contract.
 They have a free beginner course that introduce us to variables, functions, datastructure, how to send eth and manage gas.
+I followed their guide and posted the example function https://github.com/Longferret/smart_contract_tax/blob/main/code/learning_sol[here]
 
 I also checked solidity documentation directly.
 
