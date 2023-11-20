@@ -4,8 +4,8 @@
 
 You can find here all the things I learned about the solidity language
 
-[[characteristic_solidity]]
-== Characteristic
+[[characteristics_solidity]]
+== Characteristics
 The solidity language is a high-level, object oriented language that is used to implement smart contract on the ethereum blockchain.
 
 Solidity is very similar to java in the way object are declared, the visibility of state variables,...
@@ -18,11 +18,88 @@ I will list here important features of the solidity language (that is not presen
 "pure" & "view"::
 keywords that are used to tell a function wont read state variables (pure) or wont modify state varaible but might read them (view)
 
-function modifiers::
+Function modifiers::
 Function modifier are used to change the behavior of a function like restricting access to a variable, check inputs or avoid reentrancy.
 It is declared like a function, will execute prior to the function on which we apply the modifier.
 It uses the line "_;" to tell when we can run the function code.
-Here is an https://github.com/Longferret/smart_contract_tax/blob/main/code/learning_sol/modifiersAndConstructors.sol[example]
+Here is an https://github.com/Longferret/smart_contract_tax/blob/main/code/learning_sol/modifiersAndConstructors.sol[example].
+
+Visibility::
+State variables and function can be:
+
+_Private_
+
+* Can be called from inside the contract
+
+_Internal_
+
+* Can be called from inside the contract
+* Can be called from a child contract
+
+_Public_
+
+* Can be called from inside the contract
+* Can be called from a child contract
+* Can be called from other contracts or transactions
+
+_External_
+
+* Can be called from other contracts or transactions
+* State variables can not be external
+
+We can specify one of the 3 keywords for every function & state variable.
+If not specified, it is public.
+
+
+Data Location::
+In solidity there are 3 possibles place to store data:
+
+* Storage, values are stored permanently on the blockchain.
+* Memory, values are stored temporarily and will be discarded after execution. 
+* Calldata, same as memory but the data cannot be changed.
+
+We can specify these keywords on any variables, state variable have by default the "Storage" keyword.
+
+Storage is the most expensive in gas and Calldata is the least expensive.
+
+Payable address::
+In order to send Ether in Solidity, we must use the keyword "payable" when defining an address.
+
+Payable functions::
+The "payable" keyword to function allows it to receive Ether and access the member of "msg.value()".
+
+msg is a global variable in Solidity and contains all information for a transaction like:
+
+* 'msg. sender': Address of the account from where the function call came from.
+* 'msg. gas': Returns the available remaining value of the gas to call the function.
+* 'msg. value': The amount of Ether/Wei deposited or withdrawn by the msg. sender.
+* 'msg. sig': Returns the first 4 bytes of the call data of any function which helps to identify the function which is being called.
+
+https://suyashblogs.hashnode.dev/msg-in-solidity[source]
+
+The _value_ member is not accessible by non-payable function. 
+
+For a contract to receive Ether, we need 2 functions, _receive()_ and _fallback()_.
+
+_receive()_ will be executed on calls with empty calldata.
+
+_fallback()_ will be executed on calls with calldata (or even without calldata if the contract doesn't have a _receive()_).
+
+Here is an https://github.com/Longferret/smart_contract_tax/blob/main/code/learning_sol/sendingEther.sol[example].
+
+Finally to send Ether, we should use the _call()_ function of a "payable address".
+There are 2 other ways to send Ether but they are not recommended because they have a fixed gas limit(the transaction could fail repetitively).
+
+NOTE::
+A remettre dans Ethereum knowledge:
+
+1 ether = 10^18^ gwei
+
+1 ether = 10^9^ wei
+
+1 gwei = 10^9^ wei
+
+Gas price (gwei) = gas_price (network utilisation) * gas (computational effort)
 
 
 
@@ -31,7 +108,7 @@ Here is an https://github.com/Longferret/smart_contract_tax/blob/main/code/learn
 == Learning using Remix
 I used remix to begin coding in solidity, It is an IDE that permit to compile solidity code and test our contract.
 They have a free beginner course that introduce us to variables, functions, datastructure, how to send eth and manage gas.
-I followed their guide and posted the example function https://github.com/Longferret/smart_contract_tax/blob/main/code/learning_sol[here]
+I followed their guide and posted the example contracts https://github.com/Longferret/smart_contract_tax/blob/main/code/learning_sol[here]
 
 I also checked solidity documentation directly.
 
