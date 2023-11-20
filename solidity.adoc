@@ -137,4 +137,38 @@ Ethereum has 2 main testnet right now, Sepolia and Goerli.
 
 source: https://www.alchemy.com/overviews/goerli-vs-sepolia
 
-I will try later on to deploy a contract on the Sepolia network.
+Since I only want to test smart contract I will make my tests on the Sepolia network.
+
+I used 3 different Sepolia Faucet to get Ether.
+
+* https://sepolia-faucet.pk910.de/#/mine/bd7d0fb7-617e-48f0-b2dc-fa8a55f23165
+* https://sepoliafaucet.com/
+* https://www.infura.io/faucet/sepolia
+
+[[first_seurity]]
+== Simple security flaws detections
+From: 
+https://ethernaut.openzeppelin.com/
+
+=== Hello Ethernaut level
+ Simply get the password from the method _password()_ and authenticate using it.
+
+=== Fallback level
+Simple conditions
+
+_await contract.contribute({value: 4})_
+
+_await contract.getContribution()_
+
+_await contract.sendTransaction({value: 1})_
+
+_await contract.withdraw()_
+
+=== Fallout level
+Badly written constructor that we can use to as public function to claim ownership.
+
+
+_await contract.Fal1out()_
+
+=== Fallout level
+Remix IDE does not give me the same answer as the contract 
