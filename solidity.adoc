@@ -4,7 +4,59 @@
 
 You can find here all the things I learned about the solidity language
 
-[[characteristic]]
+[[characteristic_solidity]]
 == Characteristic
 The solidity language is a high-level, object oriented language that is used to implement smart contract on the ethereum blockchain.
 
+Solidity is very similar to java in the way object are declared, the visibility of state variables,...
+
+[[features_solidity]]
+=== Features
+I will list here important features of the solidity language (that is not present in other OOP language or that I find important).
+
+
+"pure" & "view"::
+keywords that are used to tell a function wont read state variables (pure) or wont modify state varaible but might read them (view)
+
+function modifiers::
+Function modifier are used to change the behavior of a function like restricting access to a variable, check inputs or avoid reentrancy.
+It is declared like a function, will execute prior to the function on which we apply the modifier.
+It uses the line "_;" to tell when we can run the function code.
+Here is an https://github.com/Longferret/smart_contract_tax/blob/main/code/func_modifier.sol[example]
+
+
+
+
+[[first_step]]
+== Learning using Remix
+I used remix to begin coding in solidity, It is an IDE that permit to compile solidity code and test our contract.
+They have a free beginner course that introduce us to variables, functions, datastructure, how to send eth and manage gas.
+
+I also checked solidity documentation directly.
+
+Links:
+
+* https://docs.soliditylang.org/
+* https://remix.ethereum.org/
+
+
+
+
+
+[[deploy_contract]]
+== Deploy a contract
+
+I tried to deploy a contract using the link:
+https://capturetheether.com/challenges/warmup/deploy/ 
+
+The site tells us to use the Ropsten test network, but it is depreciated
+since december 2022.
+
+Ethereum has 2 main testnet right now, Sepolia and Goerli.
+
+* Sepolia is recommended to deploy and test smart contracts.
+* Goerli is recommended to test node setup, beacon chain validators and client version.
+
+source: https://www.alchemy.com/overviews/goerli-vs-sepolia
+
+I will try later on to deploy a contract on the Sepolia network.
