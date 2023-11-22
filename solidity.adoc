@@ -145,8 +145,8 @@ I used 3 different Sepolia Faucets to get Ether.
 * https://sepoliafaucet.com/
 * https://www.infura.io/faucet/sepolia
 
-[[first_seurity]]
-== Simple security flaws detections
+[[first_security_flaw]]
+== Simple security flaws training
 From: 
 https://ethernaut.openzeppelin.com/
 
@@ -176,7 +176,7 @@ _await contract.Fal1out()_
 === CoinFlip level
 Using Remix IDE I created a https://github.com/Longferret/smart_contract_tax/blob/main/code/Ethernaut/CoinFlipHack.sol[contract] called "Hack" that makes a guess based on the same calculation of the original contract to guess correctly 10 times in a row.
 
-I deployed my Hack contract on the sepolia testnet and loaded the game level Coinflip. From there I can call the function I created in "Hack" to flip a coin and verify if it worked in the Coinflip contract.
+I deployed my Hack contract on the sepolia testnet and loaded the game level Coinflip in the remix IDE. From there I can call the function I created in "Hack" to flip a coin and verify if it worked in the Coinflip contract.
 
 === Telephone level
 a
