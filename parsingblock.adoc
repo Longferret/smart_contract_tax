@@ -54,6 +54,8 @@ I plan to let it run on an old computer.
 == Node analysis
 Everything I will do after I installed a full node.
 
+https://rockset.com/blog/how-to-query-the-ethereum-blockchain/
+
 [[query_blockchain]]
 === Simple Query
 I will explain here my first queries to get smart contract data.

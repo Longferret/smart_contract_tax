@@ -93,9 +93,9 @@ There are 2 other ways to send Ether but they are not recommended because they h
 NOTE::
 A remettre dans Ethereum knowledge:
 
-1 ether = 10^18^ gwei
+1 ether = 10^18^ wei
 
-1 ether = 10^9^ wei
+1 ether = 10^9^ gwei
 
 1 gwei = 10^9^ wei
 
@@ -122,7 +122,7 @@ Links:
 
 
 [[deploy_contract]]
-== Deploy a contract
+== Deploy a contract (To move in new section)
 
 I tried to deploy a contract using the link:
 https://capturetheether.com/challenges/warmup/deploy/ 
@@ -139,7 +139,7 @@ source: https://www.alchemy.com/overviews/goerli-vs-sepolia
 
 Since I only want to test smart contract I will make my tests on the Sepolia network.
 
-I used 3 different Sepolia Faucet to get Ether.
+I used 3 different Sepolia Faucets to get Ether.
 
 * https://sepolia-faucet.pk910.de/#/mine/bd7d0fb7-617e-48f0-b2dc-fa8a55f23165
 * https://sepoliafaucet.com/
@@ -151,10 +151,12 @@ From:
 https://ethernaut.openzeppelin.com/
 
 === Hello Ethernaut level
- Simply get the password from the method _password()_ and authenticate using it.
+Simply get the password from the method _password()_ and authenticate using it.
 
 === Fallback level
 Simple conditions
+
+Command line in my browser:
 
 _await contract.contribute({value: 4})_
 
@@ -167,8 +169,26 @@ _await contract.withdraw()_
 === Fallout level
 Badly written constructor that we can use to as public function to claim ownership.
 
+Command line in my browser:
 
 _await contract.Fal1out()_
 
-=== Fallout level
-Remix IDE does not give me the same answer as the contract 
+=== CoinFlip level
+Using Remix IDE I created a https://github.com/Longferret/smart_contract_tax/blob/main/code/Ethernaut/CoinFlipHAck.sol[contract] called "Hack" that makes a guess based on the same calculation of the original contract to guess correctly 10 times in a row.
+
+I deployed my Hack contract on the sepolia testnet and loaded the game level Coinflip. From there I can call the function I created in "Hack" to flip a coin and verify if it worked in the Coinflip contract.
+
+=== Telephone level
+a
+
+=== Delegation level
+a
+
+=== Force level
+a
+
+=== Vault level
+a
+
+=== King level
+a
