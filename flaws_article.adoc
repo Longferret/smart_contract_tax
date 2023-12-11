@@ -7,21 +7,35 @@ This section contains all the article I found with a short summary in order to f
 == Previous research
 A survey of attacks on Ethereum smart contracts:: https://eprint.iacr.org/2016/1007.pdf
 
-Date:
+Date: 28th March 2017
 
-Subject covered: 
+Subject covered: Simple taxonomy with examples
+
+image::images/tax01.PNG[tax01,400]
+
+Game examples to explain how to attack using presented vulnerabilities:
+
+not checking send return value,
+data is not totaly private on blockchain, name change not constructor (rly dumb), DAO attack
 
 OpenSCV: An Open Hierarchical Taxonomy for Smart Contract Vulnerabilities:: https://arxiv.org/pdf/2303.14523.pdf
 
-Date:
+Date: 7th april 2023
 
-Subject covered: 
+Subject covered: Proposition of a new open source taxonomy based on historical ones.
+
+image::images/tax02.PNG[tax02,500]
+
+image::images/tax02.2.PNG[tax02.2,500]
+
 
 Smart Contract: Attacks and Protections:: https://arxiv.org/pdf/2303.14523.pdf
 
-Date:
+Date: 10th February 2020
 
-Subject covered: 
+Subject covered: Explain differents smart contract flaws
+
+reentrancy,overflow, short address, delegatecall, default visibilities, TOD, timestamp dependence
 
 [[overlooked_area]]
 === Overlooked area
