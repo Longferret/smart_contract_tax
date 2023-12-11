@@ -10,8 +10,8 @@ With the help of: Jacquot Vincent
 ## Sections
 + Section 1: '[Ethereum basics](https://github.com/Longferret/smart_contract_tax/blob/main/ethbasics.adoc)'
 + Section 2 : '[Smart contracts & Solidity](https://github.com/Longferret/smart_contract_tax/blob/main/solidity.adoc)'
-+ Section 3 : '[Existing security flaws](https://github.com/Longferret/smart_contract_tax/blob/main/flaws.adoc)'
-+ Section 4 : '[Analysis tools](https://github.com/Longferret/smart_contract_tax/blob/main/tools.adoc)'
++ Section 3 : '[Articles on security flaws](https://github.com/Longferret/smart_contract_tax/blob/main/flaws_article.adoc)'
++ Section 4 : '[Articles on analysis tools](https://github.com/Longferret/smart_contract_tax/blob/main/tools_article.adoc)'
 + Section 5 : '[Parsing the blockchain](https://github.com/Longferret/smart_contract_tax/blob/main/parsingblock.adoc)'
 
 ## Sources

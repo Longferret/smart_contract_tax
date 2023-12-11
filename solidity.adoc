@@ -45,7 +45,7 @@ _Public_
 _External_
 
 * Can be called from other contracts or transactions
-* State variables can not be external
+* State variables cannot be external
 
 We can specify one of the 3 keywords for every function & state variable.
 If not specified, it is public.

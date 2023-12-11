@@ -1,10 +1,11 @@
 [role="pagenumrestart"]
-[[analysis_tools]]
-= Analysis tools
-This section reviews and compares the most popular analysis tools for ethereum smart contract.
+[[tools_article]]
+= Analysis of previous research on smart contract analysis tools
+This section contains all the article I found with a short summary in order to find overlooked area.
 
-[[listing_tools]]
-== Presentation of analysis tools
+[[article_summary]]
+== Previous research
+Blabla
 10 most popular Analysis tools
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8976179
 
@@ -16,3 +17,7 @@ https://arxiv.org/pdf/1910.10601.pdf
 
 I remark that the tools are often slow and do not have a high detection rate.
 
+
+[[overlooked_area]]
+=== Overlooked area
+Blabla

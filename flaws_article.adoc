@@ -1,0 +1,28 @@
+[role="pagenumrestart"]
+[[flaws_article]]
+= Analysis of previous research on smart contract security flaws
+This section contains all the article I found with a short summary in order to find overlooked area.
+
+[[article_summary]]
+== Previous research
+A survey of attacks on Ethereum smart contracts:: https://eprint.iacr.org/2016/1007.pdf
+
+Date:
+
+Subject covered: 
+
+OpenSCV: An Open Hierarchical Taxonomy for Smart Contract Vulnerabilities:: https://arxiv.org/pdf/2303.14523.pdf
+
+Date:
+
+Subject covered: 
+
+Smart Contract: Attacks and Protections:: https://arxiv.org/pdf/2303.14523.pdf
+
+Date:
+
+Subject covered: 
+
+[[overlooked_area]]
+=== Overlooked area
+Blabla
