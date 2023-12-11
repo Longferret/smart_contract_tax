@@ -37,18 +37,18 @@ My choice for the execution client is Go Ethereum (Geth).
 I chose it because it is the most popular execution client and is there since the beginning of ethereum.
 It is written in Go and fully open-source.
 
-My choice for the consensus client is Lighthouse for the same reasons.
-It is there from the genesis of the beacon chain and is the most popular one.
-It is written in Rust.
+My choice for the consensus client was Lighthouse for the same reasons (there from the genesis of the beacon chain and is the most popular).
+But after more research, I learned that prysm is simpler client to install and run.
+So I went for the prysm consensus client.
 
 [[set_up_node]]
 === Setting up my node
 Install the execution client: https://geth.ethereum.org/docs/getting-started
 
-Install the consensus client: https://lighthouse-book.sigmaprime.io/installation.html
+Install the consensus client: https://docs.prylabs.network/docs/install/install-with-script
 
-I will normally have enough disk space to have a full node on my ssd and
-I plan to let it run on an old computer.
+After folling the steps in the guide, I let run the node.
+I begun the 3th december and at the 11th december, the node has finished download every 128 blocks but now my node has to catch up with current state of Ethereum.
 
 [[node_anamysis]]
 == Node analysis
@@ -59,3 +59,4 @@ https://rockset.com/blog/how-to-query-the-ethereum-blockchain/
 [[query_blockchain]]
 === Simple Query
 I will explain here my first queries to get smart contract data.
+The next step is to query all a big of ethereum smart contract in a state of the blockchain.
