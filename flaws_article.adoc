@@ -37,6 +37,43 @@ Subject covered: Explain differents smart contract flaws
 
 reentrancy,overflow, short address, delegatecall, default visibilities, TOD, timestamp dependence
 
+Blockchain smart contracts: Applications, challenges, and future trends:: https://link.springer.com/article/10.1007/s12083-021-01127-0#Sec5
+
+Date: 18th April 2021
+
+Subject covered: Systematic Literature Review on smart contract research
+
+Taxonomy of existing research  
+
+image::images/tax03.PNG[tax03,400]
+
+This paper is a usefull source of article conerning smart contract flaws and taxonomy.
+
+Security Analysis Methods on Ethereum Smart Contract Vulnerabilities — A Survey:: https://arxiv.org/pdf/1908.08605.pdf
+
+Date: 16th september 2020
+
+Subject covered: The artlicle propose a taxonomy of smart contract security flaws
+
+image::images/tax04.PNG[tax04,500]
+
+Explanation in depth of vulnerabilities, potential fix and real examples. There is also a part on analysis tools that I cover this https://github.com/Longferret/smart_contract_tax/blob/main/tools_article.adoc[section].
+
+An empirical analysis of smart contracts: platforms, applications, and design patterns:: https://arxiv.org/pdf/1703.06322.pdf
+
+Date: 18th march 2017
+
+Subject covered: The article is an empirical analysis on smart contract types.
+
+
+An Overview on Smart Contracts: Challenges, Advances and Platforms:: https://arxiv.org/pdf/1912.10370.pdf
+
+Date: 22th december 2019
+
+Subject covered: The article is a summary of advances of past reasearch on smart contract.
+
+They also classifies the diffenrent dApps types and show their benefits and usecase.
+
 [[overlooked_area]]
 === Overlooked area
 Blabla

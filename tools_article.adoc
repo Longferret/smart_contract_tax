@@ -17,6 +17,10 @@ https://arxiv.org/pdf/1910.10601.pdf
 
 I remark that the tools are often slow and do not have a high detection rate.
 
+Security Analysis Methods on Ethereum Smart Contract Vulnerabilities — A Survey:: https://arxiv.org/pdf/1908.08605.pdf
+
+
+
 
 [[overlooked_area]]
 === Overlooked area
