@@ -5,6 +5,78 @@ This section contains all the article I found with a short summary in order to f
 
 [[article_summary]]
 == Previous research
+
+OpenSCV: An Open Hierarchical Taxonomy for Smart Contract Vulnerabilities:: https://arxiv.org/pdf/2303.14523.pdf
+
+Date: 7th april 2023
+
+Subject covered: Proposition of a new open source taxonomy based on historical ones.
+
+image::images/tax02.PNG[tax02,500]
+
+image::images/tax02.2.PNG[tax02.2,500]
+
+
+A Source-Code-­Based Taxonomy for Ethereum Smart Contracts:: https://www.researchgate.net/profile/Adrian-Hofmann-3/publication/354901921_A_Source-Code-Based_Taxonomy_for_Ethereum_Smart_Contracts/links/6153537139b8157d9003f2fc/A-Source-Code-Based-Taxonomy-for-Ethereum-Smart-Contracts.pdf
+
+Date: 2021
+
+Subject covered: Classifies smart contracts on multiple charachteritics.
+
+Maybe correlate to vulnerabilities ?
+
+Blockchain smart contracts: Applications, challenges, and future trends:: https://link.springer.com/article/10.1007/s12083-021-01127-0#Sec5
+
+Date: 18th April 2021
+
+Subject covered: Systematic Literature Review on smart contract research
+
+Taxonomy of existing research  
+
+image::images/tax03.PNG[tax03,400]
+
+This paper is a usefull source of article concerning smart contract flaws and taxonomy.
+
+Smart Contract: Attacks and Protections:: https://arxiv.org/pdf/2303.14523.pdf
+
+Date: 10th February 2020
+
+Subject covered: Explain differents smart contract flaws based on other research.
+
+reentrancy,overflow, short address, delegatecall, default visibilities, TOD, timestamp dependence
+
+Security Analysis Methods on Ethereum Smart Contract Vulnerabilities — A Survey:: https://arxiv.org/pdf/1908.08605.pdf
+
+Date: 16th september 2020
+
+Subject covered: The artlicle propose a taxonomy of smart contract security flaws
+
+image::images/tax04.PNG[tax04,500]
+
+Explanation in depth of vulnerabilities, potential fix and real examples. There is also a part on analysis tools that I cover this https://github.com/Longferret/smart_contract_tax/blob/main/tools_article.adoc[section].
+
+
+An Overview on Smart Contracts: Challenges, Advances and Platforms:: https://arxiv.org/pdf/1912.10370.pdf
+
+Date: 22th december 2019
+
+Subject covered: The article is a summary of advances of past reasearch on smart contract.
+
+They also classifies the diffenrent dApps types and show their benefits and usecase.
+
+
+NCC Group taxonomy:: https://dasp.co/
+
+Date: 2018
+
+Subject covered: It is a simple old taxonomy but clear.
+
+An empirical analysis of smart contracts: platforms, applications, and design patterns:: https://arxiv.org/pdf/1703.06322.pdf
+
+Date: 18th march 2017
+
+Subject covered: The article is an empirical analysis on smart contract types.
+
 A survey of attacks on Ethereum smart contracts:: https://eprint.iacr.org/2016/1007.pdf
 
 Date: 28th March 2017
@@ -18,62 +90,43 @@ Game examples to explain how to attack using presented vulnerabilities:
 not checking send return value,
 data is not totaly private on blockchain, name change not constructor (rly dumb), DAO attack
 
-OpenSCV: An Open Hierarchical Taxonomy for Smart Contract Vulnerabilities:: https://arxiv.org/pdf/2303.14523.pdf
+Step by Step Towards Creating a Safe Smart Contract: Lessons and Insights from a Cryptocurrency Lab:: https://eprint.iacr.org/2015/460.pdf
 
-Date: 7th april 2023
+Date: 18th november 2015
 
-Subject covered: Proposition of a new open source taxonomy based on historical ones.
+Subject covered: The authors asked students to write smart contracts and observed the security flaws of their and patch them.
 
-image::images/tax02.PNG[tax02,500]
-
-image::images/tax02.2.PNG[tax02.2,500]
-
-
-Smart Contract: Attacks and Protections:: https://arxiv.org/pdf/2303.14523.pdf
-
-Date: 10th February 2020
-
-Subject covered: Explain differents smart contract flaws
-
-reentrancy,overflow, short address, delegatecall, default visibilities, TOD, timestamp dependence
-
-Blockchain smart contracts: Applications, challenges, and future trends:: https://link.springer.com/article/10.1007/s12083-021-01127-0#Sec5
-
-Date: 18th April 2021
-
-Subject covered: Systematic Literature Review on smart contract research
-
-Taxonomy of existing research  
-
-image::images/tax03.PNG[tax03,400]
-
-This paper is a usefull source of article conerning smart contract flaws and taxonomy.
-
-Security Analysis Methods on Ethereum Smart Contract Vulnerabilities — A Survey:: https://arxiv.org/pdf/1908.08605.pdf
-
-Date: 16th september 2020
-
-Subject covered: The artlicle propose a taxonomy of smart contract security flaws
-
-image::images/tax04.PNG[tax04,500]
-
-Explanation in depth of vulnerabilities, potential fix and real examples. There is also a part on analysis tools that I cover this https://github.com/Longferret/smart_contract_tax/blob/main/tools_article.adoc[section].
-
-An empirical analysis of smart contracts: platforms, applications, and design patterns:: https://arxiv.org/pdf/1703.06322.pdf
-
-Date: 18th march 2017
-
-Subject covered: The article is an empirical analysis on smart contract types.
+They also propose a course on ethereum smart contracts with examples
+https://github.com/mc2-umd/ethereumlab
 
 
-An Overview on Smart Contracts: Challenges, Advances and Platforms:: https://arxiv.org/pdf/1912.10370.pdf
+[[other_flaw]]
+=== Others
+Smart Contract: A Literature-Based Analysis and Development of a Taxonomy Framework:: https://link.springer.com/chapter/10.1007/978-3-030-85843-8_4
 
-Date: 22th december 2019
 
-Subject covered: The article is a summary of advances of past reasearch on smart contract.
+[[vulnerable_contracts]]
+=== Collection of vulnerable contract
+In addtion to parsing the blockchain and get the data in bytecode, I post here collections done of known vulnerable smart contracts in solidity and/or bytecode.
 
-They also classifies the diffenrent dApps types and show their benefits and usecase.
+143 vulnerable smart contracts (+fix)::
+https://github.com/smartbugs/smartbugs-curated/tree/main/dataset
+
+12 vulnerable smart contracts (+fix)::
+https://github.com/crytic/not-so-smart-contracts
+
+Collection of 186 397 smart contracts that have a least one transaction (1st of April 2022):: https://paperswithcode.com/dataset/verified-smart-contracts
+
+609 vulnerable smart contracts::
+https://figshare.com/articles/dataset/Vulnerable_Verified_Smart_Contracts/21990287
+
+from the article: https://arxiv.org/pdf/1910.10601.pdf
+
+The article propose a transformer-based large language model to detect vulnerable code and propose solutions.
+
 
 [[overlooked_area]]
 === Overlooked area
-Blabla
+I remark that collection of vulnerable smart contract are hard to find, creating a database filled with smart contracts and their potential fix could be interresting.
+
+The different taxonomies of vulnerabilities are all differents and subjectives, it is hard to propose or see change that could be done.

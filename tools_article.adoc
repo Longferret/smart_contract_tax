@@ -5,22 +5,33 @@ This section contains all the article I found with a short summary in order to f
 
 [[article_summary]]
 == Previous research
-Blabla
-10 most popular Analysis tools
-https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8976179
-
-Survey of Tools for Analyzing Ethereum Smart Contracts
+A Survey of Tools for Analyzing Ethereum Smart Contracts::
 https://publik.tuwien.ac.at/files/publik_278277.pdf
 
-Empirical analysis
-https://arxiv.org/pdf/1910.10601.pdf
+Date: April 2019
 
-I remark that the tools are often slow and do not have a high detection rate.
+Subject covered: Present a summary of all analysis tools available, their purpose and the past research on comparaison of tools. 
+
+Smart Contract: Attacks and Protections::
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8976179
+
+Date: 10th February 2020
+
+Subject covered: Present and discuss 10 major security analysis tools and their limitations
+
+slither, mythx, mythril, manticore, smartcheck, echidna, securify, oyente, vandal, zeus
+
+Empirical Review of Automated Analysis Tools on 47,587 Ethereum Smart Contracts:: https://arxiv.org/pdf/1910.10601.pdf
+
+Date: 9th february 2020
+
+Subject covered: The authors used a dataset of known smart contract to test analysis tools, and then they ran the analysis tools on a set of 47,587 Ethereum Smart Contracts.
 
 Security Analysis Methods on Ethereum Smart Contract Vulnerabilities — A Survey:: https://arxiv.org/pdf/1908.08605.pdf
 
+Date: 16th september 2020
 
-
+Subject covered: The article test analysis tools(Oyente, ZEUS, Vandal, Ethir, Securify,  MAIAN, Gasper) on well known vulnerabilties (The DAO Attack,Parity Multisig Wallet Attack, Integer over/under flow Attack, KingOfEtherThrone Attack)
 
 [[overlooked_area]]
 === Overlooked area
