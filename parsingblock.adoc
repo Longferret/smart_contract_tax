@@ -49,6 +49,7 @@ Install the consensus client: https://docs.prylabs.network/docs/install/install-
 
 After folling the steps in the guide, I let run the node.
 I begun the 3th december and at the 11th december, the node has finished download every 128 blocks but now my node has to catch up with current state of Ethereum.
+It is still in state healing now the 13th december.
 
 [[node_anamysis]]
 == Node analysis

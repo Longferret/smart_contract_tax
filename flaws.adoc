@@ -47,7 +47,7 @@ They called their taxonomy OpenCSV and it is available online.
 
 Links:: 
 * Paper: https://arxiv.org/pdf/2303.14523.pdf
-* OpenCSV: https://openscv.dei.uc.pt/
+* OpenCSV: https://openscv.dei.uc.pt/ (not working anymore ???)
 
 This taxonomy is very complete and recent (April 2023), It makes it an excellent tool to check for vulnerabilities in smart contracts.
 

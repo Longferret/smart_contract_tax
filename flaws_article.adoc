@@ -6,6 +6,13 @@ This section contains all the article I found with a short summary in order to f
 [[article_summary]]
 == Previous research
 
+Demystifying Random Number in Ethereum Smart Contract:: https://arxiv.org/pdf/2304.12645.pdf
+
+Date: 25 April 2023
+
+Subject covered: Reviewing different way to generate random number using ethereum EVM.
+
+
 OpenSCV: An Open Hierarchical Taxonomy for Smart Contract Vulnerabilities:: https://arxiv.org/pdf/2303.14523.pdf
 
 Date: 7th april 2023
@@ -94,7 +101,7 @@ Step by Step Towards Creating a Safe Smart Contract: Lessons and Insights from a
 
 Date: 18th november 2015
 
-Subject covered: The authors asked students to write smart contracts and observed the security flaws of their and patch them.
+Subject covered: The authors asked students to write smart contracts, observed their security flaws and patch them.
 
 They also propose a course on ethereum smart contracts with examples
 https://github.com/mc2-umd/ethereumlab
@@ -103,6 +110,18 @@ https://github.com/mc2-umd/ethereumlab
 [[other_flaw]]
 === Others
 Smart Contract: A Literature-Based Analysis and Development of a Taxonomy Framework:: https://link.springer.com/chapter/10.1007/978-3-030-85843-8_4
+
+When ChatGPT Meets Smart Contract Vulnerability:: https://arxiv.org/pdf/2309.05520.pdf
+
+Detecting Vulnerabilities in Smart Contracts with Deep Transfer Learning:: https://www.ndss-symposium.org/wp-content/uploads/2023/02/ndss2023_s263_paper.pdf
+
+A Smart Contract Vulnerability Detection Mechanism Based on Deep Learning and Expert Rules:: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10190630
+
+ASSBert: Active and semi-supervised bert for smart contract vulnerability detection:: https://www.sciencedirect.com/science/article/abs/pii/S221421262300008X
+
+When GPT Meets Program Analysis:: https://arxiv.org/pdf/2308.03314.pdf
+
+A novel extended multimodal AI framework towards vulnerability detection in smart contracts:: https://www.sciencedirect.com/science/article/abs/pii/S0020025523004565
 
 
 [[vulnerable_contracts]]
@@ -126,7 +145,16 @@ The article propose a transformer-based large language model to detect vulnerabl
 
 
 [[overlooked_area]]
-=== Overlooked area
+=== Overlooked area and possible contribution
 I remark that collection of vulnerable smart contract are hard to find, creating a database filled with smart contracts and their potential fix could be interresting.
 
+Example: Getting all (active?) smart contract on the ethereum blockchain, try to find vulnerabilities with bytecode signature or an analysis tool and finally recover solidity code from etherscan.
+
 The different taxonomies of vulnerabilities are all differents and subjectives, it is hard to propose or see change that could be done.
+
+The lack of good practice guide, tutorials are everywhere but there are few advanced tutorials to code advanced feature in solidity.
+
+Example: Code a dApp feature (like a DAO,..) and show potiential vulnerabilities and how to avoid them
+
+A Mixed-Methods Study of Security Practices
+of Smart Contract Developers (https://www.usenix.org/system/files/usenixsecurity23-sharma.pdf)

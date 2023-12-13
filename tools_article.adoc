@@ -5,12 +5,27 @@ This section contains all the article I found with a short summary in order to f
 
 [[article_summary]]
 == Previous research
-A Survey of Tools for Analyzing Ethereum Smart Contracts::
-https://publik.tuwien.ac.at/files/publik_278277.pdf
 
-Date: April 2019
+Clockwork Finance: Automated Analysis of Economic Security in Smart Contracts:: https://arxiv.org/pdf/2109.04347.pdf
 
-Subject covered: Present a summary of all analysis tools available, their purpose and the past research on comparaison of tools. 
+Date: 18th may 2023
+
+Subject covered: The article introduce Clockwork Finance Framework, a framework to code any smart contract avoiding bulnerabilities
+
+Smart Contract and DeFi Security: Insights from Tool Evaluations and Practitioner Surveys:: https://arxiv.org/pdf/2304.02981.pdf
+
+Date: 6th april 2023
+
+Subject covered: Testing different analysis tool using different (interresting) datasets, apparently reentrancy vulnerabilities are often detected but not other kind of vulnerabilities
+
+
+Smart Contract Vulnerabilities: Vulnerable Does Not Imply Exploited:: https://www.usenix.org/system/files/sec21-perez.pdf
+
+Date: 2021
+
+Subject covered: Testing different analysis tools and make a difference between vulnerable and exploitable smart contracts.
+
+
 
 Smart Contract: Attacks and Protections::
 https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8976179
@@ -33,6 +48,15 @@ Date: 16th september 2020
 
 Subject covered: The article test analysis tools(Oyente, ZEUS, Vandal, Ethir, Securify,  MAIAN, Gasper) on well known vulnerabilties (The DAO Attack,Parity Multisig Wallet Attack, Integer over/under flow Attack, KingOfEtherThrone Attack)
 
+A Survey of Tools for Analyzing Ethereum Smart Contracts::
+https://publik.tuwien.ac.at/files/publik_278277.pdf
+
+Date: April 2019
+
+Subject covered: Present a summary of all analysis tools available, their purpose and the past research on comparaison of tools. 
+
 [[overlooked_area]]
-=== Overlooked area
-Blabla
+=== Overlooked area and possible contribution
+
+The reetrancy vulnerability is often detected by analysis tools but other vulnerabilities like coding logic, sanity checks or on-chain oracle manipulation are not currently detected by automatic analysis tool.
+Same with protocol-layer vulnerabilities.
