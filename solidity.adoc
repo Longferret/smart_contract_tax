@@ -1,5 +1,5 @@
 [role="pagenumrestart"]
-[[solidity]]
+[[solidity_section]]
 = Solidity language
 
 You can find here all the things I learned about the solidity language
@@ -146,7 +146,7 @@ I used 3 different Sepolia Faucets to get Ether.
 * https://www.infura.io/faucet/sepolia
 
 [[first_security_flaw]]
-== Simple security flaws training
+== Discover basic security flaw in solidity
 From: 
 https://ethernaut.openzeppelin.com/
 
@@ -179,16 +179,12 @@ Using Remix IDE I created a https://github.com/Longferret/smart_contract_tax/blo
 I deployed my Hack contract on the sepolia testnet and loaded the game level Coinflip in the remix IDE. From there I can call the function I created in "Hack" to flip a coin and verify if it worked in the Coinflip contract.
 
 === Telephone level
-a
+Using Remix IDE I created a https://github.com/Longferret/smart_contract_tax/blob/main/code/Ethernaut/telephone.sol[contract] called "Proxy" that will call the vulnerable contract to change the tx.origin from msg.sender and claim the ownership of the contract.
 
-=== Delegation level
-a
+I deployed my contract on the sepolia testnet and loaded the game level Telephone in the remix IDE. From there I can call the function I created in "Proxy" to change owner.
 
-=== Force level
-a
 
-=== Vault level
-a
+=== Token level
+await contract.transfer("0x478f3476358Eb166Cb7adE4666d04fbdDB56C407",21)
 
-=== King level
-a
+It causes an underflow as we only have 20 tokens (doesn't work in last solidity version)

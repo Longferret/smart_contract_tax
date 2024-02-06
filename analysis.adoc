@@ -1,0 +1,17 @@
+[role="pagenumrestart"]
+[[analyis_section]]
+= Analysis of recently deployed smart contracts
+This section contains how I ran analysis different tools on recently deployed smart contracts.
+
+[[slither]]
+== Slither
+The first experiment is testing smart contracts with the slither analysis tool.
+
+https://github.com/crytic/slither
+
+It is used to detect vulnerabilities given a solidity or vyper source code.
+
+[[methodology]]
+=== Methodology
+
+

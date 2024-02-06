@@ -10,7 +10,7 @@ Clockwork Finance: Automated Analysis of Economic Security in Smart Contracts:: 
 
 Date: 18th may 2023
 
-Subject covered: The article introduce Clockwork Finance Framework, a framework to code any smart contract avoiding bulnerabilities
+Subject covered: The article introduce Clockwork Finance Framework, a framework to code any smart contract avoiding vulnerabilities.
 
 Smart Contract and DeFi Security: Insights from Tool Evaluations and Practitioner Surveys:: https://arxiv.org/pdf/2304.02981.pdf
 

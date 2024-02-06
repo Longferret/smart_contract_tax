@@ -13,6 +13,7 @@ With the help of: Jacquot Vincent
 + Section 3 : '[Articles on security flaws](https://github.com/Longferret/smart_contract_tax/blob/main/flaws_article.adoc)'
 + Section 4 : '[Articles on analysis tools](https://github.com/Longferret/smart_contract_tax/blob/main/tools_article.adoc)'
 + Section 5 : '[Parsing the blockchain](https://github.com/Longferret/smart_contract_tax/blob/main/parsingblock.adoc)'
++ Section 6 : '[Analyzing contracts](https://github.com/Longferret/smart_contract_tax/blob/main/analysis.adoc)'
 
 ## Sources
 

@@ -1,26 +1,22 @@
 [role="pagenumrestart"]
-[[whatis_chapter]]
+[[parsing_section]]
 = Parsing the blockchain
-This section contains my methods and what I learned on how to parse the Ethereum blockchain to find security flaws in smart contracts.
+This section contains my methods and what I learned on how to parse the Ethereum blockchain.
 
 [[methodology]]
 == Methodology
-There are multiple way to parse the ethereum blockchain like:
-
-* The Ethereum dataset from Google BigQuery
-* TheGraph indexer
-* Having an archive node
+There are 2 ways to parse the ethereum blockchain Third parties or having its own node.
 
 My choice to parse the blockchain is to have my own node.
-The reason is that using the 2 first methods to parse the blockchain require a third party which can limit the number of queries or totaly block the access.
-With my own node, I have everything on my hard drive.
+The reason is that a third party can limit the number of queries or totaly block the access.
+With my own node, I can dirretly querry the ethereum blockchain.
 
 There is just one problem, it is not possible for me to have an archive node, which contains every transaction since ethereum genesis because it is requires more than 13TB.
-I'am going to run a full node which contains only the 128 last blocks and is approximately 1TB.
+I'am going to run a full node which contains the current state of the blockchain only the 128 last blocks and is approximately 1TB.
 
 source: https://www.quicknode.com/guides/infrastructure/node-setup/ethereum-full-node-vs-archive-node
 
-Note: I'am using an external 2TB SSD T7 shield from samsung
+Note: I'am using an other computer (CPU: intel i7-9750H 2.60GHz /RAM: 16GB /SSD: 1TB /running lastest ubuntu version) in pair with a 2TB external SSD.
 
 [[client_choice]]
 === Client Choice
@@ -36,8 +32,9 @@ There are different execution and consensus clients.
 My choice for the execution client is Go Ethereum (Geth).
 I chose it because it is the most popular execution client and is there since the beginning of ethereum.
 It is written in Go and fully open-source.
+I also thought of using Erigon, but it is only available for an archive node (3TB).
 
-My choice for the consensus client was Lighthouse for the same reasons (there from the genesis of the beacon chain and is the most popular).
+My choice for the consensus client was Lighthouse for the same reasons (is there from the genesis of the beacon chain and is the most popular).
 But after more research, I learned that prysm is simpler client to install and run.
 So I went for the prysm consensus client.
 
@@ -47,17 +44,55 @@ Install the execution client: https://geth.ethereum.org/docs/getting-started
 
 Install the consensus client: https://docs.prylabs.network/docs/install/install-with-script
 
-After folling the steps in the guide, I let run the node.
-I begun the 3th december and at the 11th december, the node has finished download every 128 blocks but now my node has to catch up with current state of Ethereum.
-It is still in state healing now the 13th december.
+After a lot of bugs and some time (3 days to sync) my node is synced.
+
+Bug encountered:
+
+* An external SSD was too slow to sync and never reached the current state of the blockchain, I decided to store the chaindata (old data) in the external SSD and the current blockchain data on the computer to solve the problem.
+* Geth was using too much RAM which made ubuntu freezing, I fixed it adding the command line --cache 2048 to limit the cache used by geth (default was 4096).
+* The USBC cable to my computer was bad and made the chaindata database get corrupted multiple times, I changed the USBC to a simple USB cable to solve the issue.
 
 [[node_anamysis]]
 == Node analysis
-Everything I will do after I installed a full node.
+An ethereum node can be querried by using the JSON-RPC API.
 
-https://rockset.com/blog/how-to-query-the-ethereum-blockchain/
+https://ethereum.org/developers/docs/apis/json-rpc
+
+[[query_third_party]]
+=== Query using third party
+I began by using an external service while I was waiting to have my own node.
+I used Infura to make my first tests to query the blockchain using the JSON-RPC API (over HTTP).
+
+My Idea to gather smarts contracts is to read all transactions when a new block is added and watch for new smart contracts publication.
+
+The https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/first_query.py[script] I created get the last block number, analyze all transaction in it and wait for the next block to analyze it.
+I used python for simplicity.
+
+We can spot a contract deployment by looking at the "to" attribute of a transaction which contains no address and then we can use the transaction receipt to get the address of the contract and its bytecode.
+
+Notes:
+
+* With an external node provider like Infura, we can't read blocks in real time, the provider limits the amount of query per second so the block are added faster than we can read them.
+* We only retreive the bytecodes and the contract addresses.
+
 
 [[query_blockchain]]
-=== Simple Query
-I will explain here my first queries to get smart contract data.
-The next step is to query all a big of ethereum smart contract in a state of the blockchain.
+=== Query using my own node
+
+I used the same strategy as above but with my own node.
+
+I changed the https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/gather_contract.py[script] to group smart contract by their day of deployment.
+
+I coded a new https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_search.py[script] to get the source code of all smart contract if they are available by using the Etherscan API. It also save some data on the compiler version used and settings to generate the bytecode.
+
+I coded another https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_clean.py[script] to deal with source code that are in multiple files.
+
+Note:
+
+* The first script gather contract in real time.
+* The second has to be executed manually and search all source code of contracts for a given day.
+* The third one also has to be executed manually and also clean source code for a given day.
+* There are still source codes that are not in Solidity but in Vyper, the script do not supports them for the moment.
+* A possible next step is the analysis of the gathered contracts using analysis tools.
+
+
