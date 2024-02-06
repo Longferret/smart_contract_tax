@@ -54,7 +54,7 @@ Bug encountered:
 
 [[node_anamysis]]
 == Node analysis
-An ethereum node can be querried by using the JSON-RPC API.
+An ethereum node can be queried by using the JSON-RPC API.
 
 https://ethereum.org/developers/docs/apis/json-rpc
 
@@ -83,7 +83,7 @@ I used the same strategy as above but with my own node.
 
 I changed the https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/gather_contract.py[script] to group smart contract by their day of deployment.
 
-I coded a new https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_search.py[script] to get the source code of all smart contract if they are available by using the Etherscan API. It also save some data on the compiler version used and settings to generate the bytecode.
+I coded a new https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_search.py[script] to get the source code of all smart contract if they are available by using the Etherscan API. It also saves some data on the compiler version used and settings to generate the bytecode.
 
 I coded another https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_clean.py[script] to deal with source code that are in multiple files.
 
@@ -94,5 +94,6 @@ Note:
 * The third one also has to be executed manually and also clean source code for a given day.
 * There are still source codes that are not in Solidity but in Vyper, the script do not supports them for the moment.
 * A possible next step is the analysis of the gathered contracts using analysis tools.
+* (06/02/2024) Currently gathered contracts ~1000
 
 
