@@ -98,13 +98,15 @@ The only way to spot them is to watch the bytecode executed at each transaction,
 
 I tried to get the trace for each transaction in a block, but this method is too slow and can't keep up with the new block arriving. It is due to the execution client sending directy each transaction trace 1 by 1 to the python script.
 
-The most efficient way to get the traces of transactions is to call "debug_standardTraceBlockToFile".
+The most efficient way to get the traces of transactions is to call https://geth.ethereum.org/docs/interacting-with-geth/rpc/ns-debug[debug_standardTraceBlockToFile].
 It stores all the traces of a given block in the temp folder.
 The script then analyse the current block searching for the opcode "CREATE" or "CREATE2".
 
 CREATE: creation of a smart contract with non deterministic contract address
 
 CREATE2: creation of a smart contract with deterministic contract address
+
+https://ethervm.io/
 
 The address of the contract is on top of the stack at the next intruction (can be tracked thanks to the program counter in the traces).
 
