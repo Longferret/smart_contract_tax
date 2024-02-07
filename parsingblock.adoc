@@ -74,26 +74,57 @@ Notes:
 
 * With an external node provider like Infura, we can't read blocks in real time, the provider limits the amount of query per second so the block are added faster than we can read them.
 * We only retreive the bytecodes and the contract addresses.
+* By only looking at the "to" field of a transaction, we only get contract created by ordinary addresses (users).
 
 
 [[query_blockchain]]
 === Query using my own node
 
-I used the same strategy as above but with my own node.
+https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/gather_contract.py[Script to gather contracts]
 
-I changed the https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/gather_contract.py[script] to group smart contract by their day of deployment.
+I used the same strategy as above but with my own node and I added an analysis of the traces.
 
-I coded a new https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_search.py[script] to get the source code of all smart contract if they are available by using the Etherscan API. It also saves some data on the compiler version used and settings to generate the bytecode.
+What it does:
 
-I coded another https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_clean.py[script] to deal with source code that are in multiple files.
+* analysis of "to" field of the transactions to spot contract created by ordinary addresses
+* analysis of the traces of the transactions to spot contract created by internal calls
+* group smart contracts by their day of creation
+* save bytecode, contract address and creation type
+
+More explanation:
+
+An internal call is not directly visible in the transactions, it happens when a smart contract deploy or call another smart contract.
+The only way to spot them is to watch the bytecode executed at each transaction, this information is in the traces of the transaction.
+
+I tried to get the trace for each transaction in a block, but this method is too slow and can't keep up with the new block arriving. It is due to the execution client sending directy each transaction trace 1 by 1 to the python script.
+
+The most efficient way to get the traces of transactions is to call "debug_standardTraceBlockToFile".
+It stores all the traces of a given block in the temp folder.
+The script then analyse the current block searching for the opcode "CREATE" or "CREATE2".
+
+CREATE: non deterministic contract address
+
+CREATE2: non deterministic contract address
+
+The address of the contract is on top of the stack at the next intruction (can be tracked thanks to the program counter in the traces).
+
+https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_search.py[Script to retreive Source Code]
+
+I is used to get the source code of all smart contract if they are available by using the Etherscan API. It also saves some data on the compiler version used and settings to generate the bytecode.
+
+https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_clean.py[Script to clean Source Code]
+
+Some source code from the Etherscan API are given in multiple files and the previous script doesn't handle them.
+This script corrects the Source Code. 
+
 
 Note:
 
 * The first script gather contract in real time.
 * The second has to be executed manually and search all source code of contracts for a given day.
-* The third one also has to be executed manually and also clean source code for a given day.
+* The third one also has to be executed manually and clean source code for a given day.
 * There are still source codes that are not in Solidity but in Vyper, the script do not supports them for the moment.
 * A possible next step is the analysis of the gathered contracts using analysis tools.
-* (06/02/2024) Currently gathered contracts ~1000
+* (07/02/2024) Currently gathered contracts ~1000
 
 

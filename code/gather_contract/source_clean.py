@@ -2,7 +2,7 @@ import json
 import os 
 from pathlib import Path
 
-PATH = ""
+PATH = "Contracts/2024-02-07"
 
 def writeCode(path,name,code):
     f = open(path + '/' + name, 'w')
@@ -11,7 +11,7 @@ def writeCode(path,name,code):
     return 
 
 def clean_source(path):
-    print(path + '/code.sol')
+    #print(path + '/code.sol')
     sol_file = Path(path + '/code.sol')
     if not sol_file.is_file():
         return
