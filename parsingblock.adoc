@@ -102,9 +102,9 @@ The most efficient way to get the traces of transactions is to call "debug_stand
 It stores all the traces of a given block in the temp folder.
 The script then analyse the current block searching for the opcode "CREATE" or "CREATE2".
 
-CREATE: non deterministic contract address
+CREATE: creation of a smart contract with non deterministic contract address
 
-CREATE2: non deterministic contract address
+CREATE2: creation of a smart contract with deterministic contract address
 
 The address of the contract is on top of the stack at the next intruction (can be tracked thanks to the program counter in the traces).
 
@@ -118,7 +118,7 @@ Some source code from the Etherscan API are given in multiple files and the prev
 This script corrects the Source Code. 
 
 
-Note:
+Notes:
 
 * The first script gather contract in real time.
 * The second has to be executed manually and search all source code of contracts for a given day.
