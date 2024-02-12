@@ -28,7 +28,7 @@ A Source-Code-­Based Taxonomy for Ethereum Smart Contracts:: https://www.resear
 
 Date: 2021
 
-Subject covered: Classifies smart contracts on multiple charachteritics.
+Subject covered: Classifies smart contracts on multiple characteritics.
 
 Maybe correlate to vulnerabilities ?
 
