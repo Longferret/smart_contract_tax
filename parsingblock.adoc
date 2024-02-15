@@ -120,6 +120,6 @@ Notes:
 * The first script gather contract in real time.
 * The second has to be executed manually and search all source code of contracts for a given day.
 * A possible next step is the analysis of the gathered contracts using other analysis tools and analyzing result of slither.
-* (07/02/2024) Currently gathered contracts ~1000
+* (15/02/2024) Currently gathered contracts 1500 (source code available: 350, by internal 1273, by ordinary 207)
 
 
