@@ -21,7 +21,7 @@ def slither_check(path):
         f.close()
         if available != 'OK':
             os.chdir(path + f'/{i}')
-            os.system(f'slither {contract_addr} --etherscan-only-source-code --etherscan-apikey 7YMUE7AGVFN1YHDYJ991GFHMJ26UAIIX2B --json slither.txt --json-types detectors --exclude-optimization --exclude-informational --exclude-dependencies --exclude-low')
+            os.system(f'slither {contract_addr} --etherscan-only-source-code --etherscan-apikey ETHERSCAN KEY --json slither.txt --json-types detectors --exclude-optimization --exclude-informational --exclude-dependencies --exclude-low')
             os.chdir('..')
             os.chdir('..')
             os.chdir('..')
