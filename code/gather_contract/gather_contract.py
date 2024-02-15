@@ -7,7 +7,7 @@ from pathlib import Path
 
 PATH = 'Contracts'
 
-def writeContract(contract_addr,bytecode,path,count,type):
+def writeContract(contract_addr,bytecode,path,count,type,block,index):
     os.mkdir(path + f'/{count}')
     f = open(path + f'/{count}/code', 'w')
     f.write(bytecode)
@@ -16,6 +16,8 @@ def writeContract(contract_addr,bytecode,path,count,type):
     f = open(path + f'/{count}/metadata.txt', 'w')
     f.write('Contract_address: '+contract_addr+'\n')
     f.write('Creation: '+ type+'\n')
+    f.write('Block: '+ block+'\n')
+    f.write('Index: '+ index+'\n')
     f.write('Source_code: NOK\n')
     f.close()
 
@@ -41,16 +43,20 @@ def update_count(c,path):
 	f.write(f'{c}')
 	f.close()
 
-def folder_management(t_date,path):
+def folder_management(t_date,path,block):
     day_folder = Path(path + '/' + t_date)
     if not day_folder.is_dir():
         os.mkdir(path + '/' + t_date)
+        os.mkdir(path + '/' + t_date +'/logs')
         f = open( path + '/' + t_date + '/count.txt', 'w')
         f.write('1')
         f.close()
+        f = open( path + '/' + t_date + '/starting.txt', 'w')
+        f.write(block)
+        f.close()
     return path + '/' + t_date
 
-def analyze_tx_trace(path,path_w,count):
+def analyze_tx_trace(path,path_w,count,block,index):
     new_contracts = 0
     f = open(path)
     line = f.readline()
@@ -61,6 +67,7 @@ def analyze_tx_trace(path,path_w,count):
 
     # remove last item, it has not the same keys
     block_trace.pop()
+    op = 0
 
     for operation in block_trace:
             if operation['opName'] == 'CREATE2' or operation['opName'] == 'CREATE':
@@ -69,15 +76,13 @@ def analyze_tx_trace(path,path_w,count):
                 pc = operation['pc']+1
                 #find next program counter to find contract addr
                 contract_addr = 'NONE'
-                for i in range(len(block_trace)-1):
+                for i in range(op,len(block_trace)-1):
                     if block_trace[i]['pc'] == pc:
                          contract_addr = block_trace[i]['stack'][-1]
                          break
 
                 if contract_addr == 'NONE':
                      print('Cannot find result of contract deployment')
-                     f.close()
-                     return new_contracts
                 
                 try:
                     # get byte code
@@ -85,27 +90,33 @@ def analyze_tx_trace(path,path_w,count):
                     resp = json.loads(r.content)
                     bytecode = resp['result']
                     # write 
-                    writeContract(contract_addr,bytecode,path_w,count,'INTERNAL')
+                    writeContract(contract_addr,bytecode,path_w,count+new_contracts,'INTERNAL',block,index)
                     new_contracts += 1
                 except:
-                     print('Faulty contract address')
+                    print(f'Faulty contract address: {contract_addr}')
+                    f2 = open(path_w + f'/logs/{block}-{index}.txt','w')
+                    f2.write(json. dumps(block_trace))
+                    f2.close()
+            op += 1
+
 
 
     f.close()
     os.remove(path)
     return new_contracts
 
+r = request_local('eth_blockNumber',[])
+trans = json.loads(r.content)
+lastblock = trans['result']
+#lastblock = '0x12560bd'
 
 last_date = str(date.today())
-path_writting = folder_management(last_date,PATH)
+path_writting = folder_management(last_date,PATH,hex(int(lastblock,16)+1))
 
 f = open(path_writting + '/count.txt', 'r')
 count = int(f.read())
 f.close()
 
-r = request_local('eth_blockNumber',[])
-trans = json.loads(r.content)
-lastblock = trans['result']
 
 
 while True:
@@ -116,11 +127,11 @@ while True:
     print('Last analyzed : ' + lastblock)
     # Last block has changed, verify transaction in next block
     if(trans['result']!=lastblock):
+        lastblock = hex(int(lastblock,16)+1)
         if last_date != str(date.today()):
             last_date = str(date.today())
-            path_writting = folder_management(last_date,PATH)
+            path_writting = folder_management(last_date,PATH,lastblock)
             count = 1
-        lastblock = hex(int(lastblock,16)+1)
         # only used as information to display
         r = request_local('eth_getBlockTransactionCountByNumber',[lastblock])
         resp = json.loads(r.content)
@@ -129,6 +140,7 @@ while True:
         # get block and all transaction
         r = request_local('eth_getBlockByNumber',[lastblock,True])
         block = json.loads(r.content)
+        i = 0
         # ---------search new contract by ordinary addresses
         for transaction in block['result']['transactions']:
             if (transaction['to'] == None):
@@ -141,18 +153,28 @@ while True:
                 trans = json.loads(r.content)
                 bytecode = trans['result']
                 # Write
-                writeContract(contract_addr,bytecode,path_writting,count,'ORDINARY')
+                writeContract(contract_addr,bytecode,path_writting,count,'ORDINARY',lastblock,hex(i))
                 count += 1
                 update_count(count,path_writting)
+            i += 1
 
         # ---------search new contract by internal call
         block_hash = block['result']['hash']
         # write all transaction trace of the block in temp and get their path
         r = request_local('debug_standardTraceBlockToFile',[block_hash])
         path_trace = json.loads(r.content)
-        for transaction in path_trace['result']:
-            count += analyze_tx_trace(transaction,path_writting,count)
-            update_count(count,path_writting)
+        if block_transaction_nbr:
+            try:
+                i = 0
+                for transaction in path_trace['result']:
+                    count += analyze_tx_trace(transaction,path_writting,count,lastblock,hex(i))
+                    update_count(count,path_writting)
+                    i+=1
+            except:
+                print('Problem with block trace')
+                f2 = open(path_writting + f'/logs/b-{lastblock}.txt','w')
+                f2.write(json.dumps(path_trace))
+                f2.close()
             
     else:
         time.sleep(5)
