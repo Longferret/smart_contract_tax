@@ -36,14 +36,13 @@ I also thought of using Erigon, but it is only available for an archive node (3T
 
 My choice for the consensus client was Lighthouse for the same reasons (is there from the genesis of the beacon chain and is the most popular).
 But after more research, I learned that prysm is simpler client to install and run.
-So I went for the prysm consensus client.
+But nimbus is lighter (less RAM usage) so I went for it.
 
 [[set_up_node]]
 === Setting up my node
 Install the execution client: https://geth.ethereum.org/docs/getting-started
 
-Install the consensus client: https://docs.prylabs.network/docs/install/install-with-script
-
+Install the consensus client: https://nimbus.guide/
 After a lot of bugs and some time (3 days to sync) my node is synced.
 
 Bug encountered:
@@ -51,6 +50,7 @@ Bug encountered:
 * An external SSD was too slow to sync and never reached the current state of the blockchain, I decided to store the chaindata (old data) in the external SSD and the current blockchain data on the computer to solve the problem.
 * Geth was using too much RAM which made ubuntu freezing, I fixed it adding the command line --cache 2048 to limit the cache used by geth (default was 4096).
 * The USBC cable to my computer was bad and made the chaindata database get corrupted multiple times, I changed the USBC to a simple USB cable to solve the issue.
+* The node was still crashing because prysm used 8+ GB of RAM, nimbus only use 2-3 GB of RAM.
 
 [[node_anamysis]]
 == Node analysis
@@ -110,23 +110,16 @@ https://ethervm.io/
 
 The address of the contract is on top of the stack at the next intruction (can be tracked thanks to the program counter in the traces).
 
-https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_search.py[Script to retreive Source Code]
+https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_search.py[Script to retreive Source Code and analyze with slither]
 
-I is used to get the source code of all smart contract if they are available by using the Etherscan API. It also saves some data on the compiler version used and settings to generate the bytecode.
-
-https://github.com/Longferret/smart_contract_tax/blob/main/code/gather_contract/source_clean.py[Script to clean Source Code]
-
-Some source code from the Etherscan API are given in multiple files and the previous script doesn't handle them.
-This script corrects the Source Code. 
-
+It is used to get the source code of all smart contract if they are available by using the Etherscan API.
+It also run an security flaw analysis (on solidity code) using slither, only the medium and high impact flaws are saved. (in the file slither.txt with JSON format)
 
 Notes:
 
 * The first script gather contract in real time.
 * The second has to be executed manually and search all source code of contracts for a given day.
-* The third one also has to be executed manually and clean source code for a given day.
-* There are still source codes that are not in Solidity but in Vyper, the script do not supports them for the moment.
-* A possible next step is the analysis of the gathered contracts using analysis tools.
+* A possible next step is the analysis of the gathered contracts using other analysis tools and analyzing result of slither.
 * (07/02/2024) Currently gathered contracts ~1000
 
 
