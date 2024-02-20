@@ -14,4 +14,18 @@ It is used to detect vulnerabilities given a solidity or vyper source code.
 [[methodology]]
 === Methodology
 
+I used this command line on each contract that I gathered:
+
+_slither {contract_addr} --etherscan-only-source-code --etherscan-apikey ETHERSCAN KEY --json slither.txt --json-types detectors --exclude-optimization --exclude-informational --exclude-dependencies --exclude-low_
+
+What it does:
+
+* check for etherscan source code
+
+* export result as a JSON in a txt file
+
+* excule optimization,informational, dependencies warnings and low impact vulnerabilities
+
+
+Next step is classification of the vulnerabilities and analysis.
 

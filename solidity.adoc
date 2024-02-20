@@ -188,3 +188,45 @@ I deployed my contract on the sepolia testnet and loaded the game level Telephon
 await contract.transfer("0x478f3476358Eb166Cb7adE4666d04fbdDB56C407",21)
 
 It causes an underflow as we only have 20 tokens (doesn't work in last solidity version)
+
+
+[[SMT_CHECKER]]
+== SMT checker 
+It is a feature of solidity that allow developpers to make a formal verification of their code.
+It uses require and assert statement to so.
+
+https://docs.soliditylang.org/en/stable/smtchecker.html
+
+_require(cond)_
+
+Permit to make assumption to later use assert().
+
+_assert(cond)_
+
+Verify that in all cases, the condition remain true, raise an error otherwise.
+
+=== Inline assembly 
+In solidity, assembly can be use to have more control.
+It is done using Yul a low level-language.
+
+https://docs.soliditylang.org/en/latest/assembly.html
+
+https://docs.soliditylang.org/en/latest/yul.html#yul
+
+In the case of SMTchecker, inline assembly is not currently supported. 
+
+If any solidity-level variable is assigned a value, it is considered of unknown value.
+
+If mstore/sstore is used, all the solidity-level variables are considered of unknown value.  
+
+=== Possible contribution
+
+* Check solidity value assignation by assembly (Yul AST)
+
+* Check solidity memory management to support mstore (array)
+
+https://docs.soliditylang.org/en/latest/assembly.html#memory-management
+
+* Check solidity storage management to support sstore (array)
+
+https://docs.soliditylang.org/en/latest/internals/layout_in_storage.html
