@@ -24,8 +24,7 @@ What it does:
 
 * export result as a JSON in a txt file
 
-* excule optimization,informational, dependencies warnings and low impact vulnerabilities
-
+* exclude optimization, informationnal, dependencies warnings and low impact vulnerabilities
 
 Next step is classification of the vulnerabilities and analysis.
 
