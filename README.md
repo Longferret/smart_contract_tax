@@ -1,20 +1,12 @@
 # Research on Smart Contract security flaws 
+From Henry Leclipteur.
 
-I'am Henry Leclipteur and, as part of my master's thesis, I will explore how  smart contracts work and their security flaws on the ethereum blockchain. 
-
-Promoter: Donnet Benoît
-
-With the help of: Jacquot Vincent
+This repository is a demonstration on how to parse the ethereum blockchain and analyze newly created smart contracts.
 
 
 ## Sections
-+ Section 1: '[Ethereum basics](https://github.com/Longferret/smart_contract_tax/blob/main/ethbasics.adoc)'
-+ Section 2 : '[Smart contracts & Solidity](https://github.com/Longferret/smart_contract_tax/blob/main/solidity.adoc)'
-+ Section 3 : '[Articles on security flaws](https://github.com/Longferret/smart_contract_tax/blob/main/flaws_article.adoc)'
-+ Section 4 : '[Articles on analysis tools](https://github.com/Longferret/smart_contract_tax/blob/main/tools_article.adoc)'
-+ Section 5 : '[Parsing the blockchain](https://github.com/Longferret/smart_contract_tax/blob/main/parsingblock.adoc)'
-+ Section 6 : '[Analyzing contracts](https://github.com/Longferret/smart_contract_tax/blob/main/analysis.adoc)'
-
-## Sources
-
-Each statement in any section of my work will contain a link to the sources.
++ Section 1 : '[Smart contracts & Solidity](https://github.com/Longferret/smart_contract_tax/blob/main/solidity.adoc)'
++ Section 2 : '[Articles on security flaws](https://github.com/Longferret/smart_contract_tax/blob/main/flaws_article.adoc)'
++ Section 3 : '[Articles on analysis tools](https://github.com/Longferret/smart_contract_tax/blob/main/tools_article.adoc)'
++ Section 4 : '[Parsing the blockchain](https://github.com/Longferret/smart_contract_tax/blob/main/parsingblock.adoc)'
++ Section 5 : '[Analyzing contracts](https://github.com/Longferret/smart_contract_tax/blob/main/analysis.adoc)'
